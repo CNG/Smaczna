@@ -1,0 +1,78 @@
+<mt:If tag="CategoryBasename"><$mt:CategoryLabel setvar="category"$><mt:Else><$mt:Var name="tag" value="@English"$></mt:If>
+<mt:Entries lastn="1" tag="$tag" category="$category">
+  <mt:SetVarBlock name="html_header" append="1">
+    <link rel="stylesheet" href="/rsc/anythingslider/css/anythingslider.css" type="text/css" media="screen" />
+    <!--[if lte IE 7]>
+    <link rel="stylesheet" href="/rsc/anythingslider/css/anythingslider-ie.css" type="text/css" media="screen" />
+    <![endif]-->
+  </mt:SetVarBlock>
+  <$mt:Include module="Hours"$>
+  <$mt:EntryFieldValue field="special_text_alignment" setvar="special_text_alignment"$>
+  <mt:SetVarBlock name="html_header" append="1">
+    <style type="text/css">
+      #special h2 {
+        margin-bottom:0;
+        text-indent:-9999px;
+        width:320px;
+        height:215px;
+        background:url(<mt:EntryLinkedAssets field="special_header_image"><$mt:AssetURL$></mt:EntryLinkedAssets>) no-repeat;
+      }
+      #special p {
+        position:relative;
+        top:-<$mt:EntryFieldValue field="special_text_distance"$>px;
+        line-height:15px;
+        <mt:If name="special_text_alignment" eq="left">padding-left:10px;
+        <mt:Else>padding-right:10px;text-align:right;</mt:If>
+        color:#<$mt:EntryFieldValue field="special_text_color"$>;
+        font-weight:bold;
+      }
+    </style>
+  </mt:SetVarBlock>
+  <$mt:Include module="HTML Header"$>
+  <div id="container">
+    <?php include("<$mt:var name="blog_site_path"$>header.html"); ?>
+    <mt:SetVarTemplate name="slider_template">
+      <mt:SetVarBlock name="html_footer" append="1">
+        <script type="text/javascript" src="/rsc/anythingslider/js/jquery.anythingslider.min.js"></script>
+        <script type="text/javascript">
+          $(function(){
+            $('#slider').anythingSlider({
+              buildNavigation:false,buildStartStop:false,toggleArrows:true,hashTags:false,
+              autoPlay:true,delay:5000,resumeDelay:5000,animationTime:800
+            });
+          });
+        </script>
+      </mt:SetVarBlock>
+      <div class="container_12">
+        <ul id="slider">
+          <mt:EntryFieldGroup group="carousel">
+            <mt:EntryLinkedAssets field="carousel_image">
+              <li>
+                <img src="<$mt:AssetURL$>" width="<$mt:AssetProperty property="image_width"$>" height="<$mt:AssetProperty property="image_height"$>" alt="<$mt:EntryFieldValue field="carousel_title" escape_html="1"$>" />
+                <div class="caption<mt:EntryIfField field="carousel_lightness"> <$mt:EntryFieldValue field="carousel_lightness"$></mt:EntryIfField>"><p class="title"><$mt:EntryFieldValue field="carousel_title"$></p><p class="subtitle"><$mt:EntryFieldValue field="carousel_subtitle"$></p></div>
+              </li>
+            </mt:EntryLinkedAssets>
+          </mt:EntryFieldGroup>
+        </ul><!-- #slider -->
+      </div><!-- .container_12 -->
+    </mt:SetVarTemplate>
+    <mt:EntryIfFieldGroup group="carousel">
+      <$mt:Var name="slider_template"$>
+    </mt:EntryIfFieldGroup>
+    <div class="container_16">
+      <div id="content" class="grid_16">
+        <$mt:Var name="hours_module"$>
+        <$mt:Include module="Weather"$>
+        <div id="special" class="grid_6 omega">
+          <div class="holder">
+            <h2><$mt:EntryFieldValue field="special_header_text"$></h2>
+            <p><$mt:EntryFieldValue field="special_text"$></p>
+          </div>
+        </div><!-- #special .grid_6 omega -->
+      </div><!-- #content .grid_16 -->
+    </div><!-- .container_16 -->
+    <?php include("<$mt:var name="blog_site_path"$>footer.html"); ?>
+  </div><!-- #container -->
+  <div id="container-bottom">&nbsp;</div>
+  <$mt:Include module="HTML Footer"$>
+</mt:Entries>

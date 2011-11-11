@@ -1,0 +1,173 @@
+/* Global layout */
+body {
+  background:url(/rsc/images/brick.gif) #fff;
+}
+#container {
+  z-index:2;
+  margin-left:auto;
+  margin-right:auto;
+  width:988px;
+  background:url(/rsc/images/content-holder-background.png) repeat-y center;
+}
+#container-bottom {
+  z-index:2;
+  margin-left:auto;
+  margin-right:auto;
+  width:988px;
+  height:14px;
+  background:url(/rsc/images/content-holder-bottom.png) no-repeat;
+}
+
+
+/* Global text */ 
+p { color:#333; }
+a { color:#50719c;text-shadow:1px 1px 1px rgba(255,255,255,0.6); }
+a:hover { color:#adbdd1; }
+li,p { font-size:12px; }
+
+
+/* Header */
+#header {
+  background:url(/rsc/images/header-background.gif) #fff repeat-x;
+  padding-top:;
+}
+#header h1 {
+  text-indent:-9999px;
+  width:300px;
+  height:105px;
+  background:url(/rsc/images/Header.gif) #cccccc no-repeat;
+}
+#header p, #header ul, #header h1 { margin-bottom:0; }
+#header p { color:#adbdd1; }
+#header a { text-decoration:none; }
+#header ul { text-align:right; }
+#header ul li {
+  display:inline;
+  font-size:30px;
+  font-weight:bold;
+  line-height:200%;
+  margin:0 15px;
+  position:relative;left:10px;
+}
+#address { text-align:right;margin-top:15px; }
+/* Header localization overrides */
+.espanol #header ul li { font-size:29px; margin:0 12px; }
+.russian #header ul li { font-size:26px; margin:0 10px; }
+
+
+/* Homepage slider */
+#slider li { margin-left:0; }
+#slider li .caption {
+  width:500px;
+  position:relative;top:-160px;left:315px;
+  padding:10px;
+}
+#slider li .medium {
+  background-color:rgba(244,212,129,0.5);
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+#slider li .light{
+  background-color:rgba(244,212,129,0.2);
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+#slider li .light p {
+  color:#384e6a;
+  text-shadow: 0px 1px 0px #e5e5ee;
+  opacity:0.9;
+}
+#slider li .dark p {
+  color:#e8ebf0;
+  text-shadow: 0px -1px 0px #374683;
+  opacity:0.9;
+}
+#slider li .medium p {
+  color:#384e6a;
+  text-shadow: 0px 1px 0px #e5e5ee;
+  opacity:0.9;
+}
+#slider li .caption .title {
+  font-size:30px;line-height:30px;font-weight:bold;
+  letter-spacing:1px;
+  margin-bottom:5px;
+  word-wrap:break-word;
+}
+#slider li .caption .subtitle {
+  font-size:24px;line-height:28px;font-weight:bold;
+  letter-spacing:1px;
+  margin-bottom:0;
+  word-wrap:break-word;
+}
+/* Homepage slider localization overrides */
+.russian #slider li .caption .title { font-size:28px; }
+.espanol #slider li .caption .subtitle { font-size:22px; }
+.russian #slider li .caption .subtitle { font-size:22px; }
+
+
+/* Main content area */
+#content { padding-top:20px; }
+.holder {
+  height:215px;
+  margin:0 10px;
+  background-color: #fff;
+  -moz-box-shadow: 0 0 2px 2px #ccc;
+  -webkit-box-shadow: 0 0 2px 2px #ccc;
+  box-shadow: 0 0 2px 2px #ccc;
+}
+
+/* Homepage modules */
+/* Hours */
+#hours h2 {
+  text-indent:12px;
+  width:94px;height:21px;
+  position:relative;left:-7px;top:6px;
+  background:url(/rsc/images/hours-box-banner-full.png) no-repeat;
+  font-size:10px;color:#eab118;
+  margin-bottom:10px;
+}
+#hours h3 { text-indent:-9999px;margin-bottom:5px; }
+#hours .closed {
+  height:57px;
+  background:url(/rsc/images/hours-closed.png) no-repeat top center;
+}
+#hours .open {
+  height:57px;
+  background:url(/rsc/images/hours-open.png) no-repeat top center;
+}
+#hours p, #hours h4 { text-align:center;margin-bottom:1px; }
+#hours p { font-weight:bold; }
+#hours h4 { color:#50719c;font-size:14px; }
+#hours hr {
+  width:200px;text-align:center;margin:12px auto;
+  border-top:1px solid #eab118;
+}
+/* Weather */
+#weather { position:relative; }
+#weather h2 {
+  float:right;
+  text-indent:;text-align:center;padding-top:4px;
+  width:94px;height:76px;
+  position:relative;right:-7px;top:6px;
+  background:url(/rsc/images/weather-box-banner-full.png) no-repeat;
+  margin-bottom:10px;
+}
+#weather .title, #weather .subtitle {
+  width:173px;
+  margin:0 0 0 20px;
+}
+#weather .title { color:#50719c;font-weight:bold;padding-top:15px; }
+#weather .subtitle { font-weight:bold;line-height:15px; }
+#weather-image { position:absolute;bottom:0; }
+/* Special */
+#special h2 { /* written elsewhere */ }
+#special p { /* written elsewhere */ }
+
+
+/* Footer */
+#footer { margin:40px 0 0 0; }
+#footer a { text-decoration:none; }
+#footer ul { text-align:center; }
+#footer ul li { margin:0 15px;display:inline; }
+#lang form { display:inline; }
+

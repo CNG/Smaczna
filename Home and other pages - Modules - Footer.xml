@@ -1,0 +1,25 @@
+<div id="footer" class="container_12">
+  <div class="grid_12">
+    <ul>
+      <mt:If tag="CategoryBasename"><$mt:CategoryLabel setvar="category"$><mt:Else><$mt:Var name="tag" value="@English"$></mt:If>
+      <mt:Entries lastn="1" tag="$tag" category="$category">
+        <mt:EntryFieldGroup group="nav_bottom">
+          <li><mt:EntryIfField field="nav_bottom_link"><a href="<mt:If tag="CategoryBasename">/<$mt:CategoryBasename$>/</mt:If><$mt:EntryFieldValue field="nav_bottom_link"$>"></mt:EntryIfField><$mt:EntryFieldValue field="nav_bottom_text"$><mt:EntryIfField field="nav_bottom_link"></a></mt:EntryIfField></li>
+        </mt:EntryFieldGroup>
+        <mt:EntryIfField field="facebook_link"><li><a href="http://facebook.com/<$mt:EntryFieldValue field="facebook_link"$>">FB</a></li></mt:EntryIfField>
+        <mt:EntryIfField field="twitter_link"><li><a href="http://twitter.com/<$mt:EntryFieldValue field="twitter_link"$>">Twitter</a></li></mt:EntryIfField>
+        <li id="lang">
+          <form action="">
+            <select name="langSelect" id="langSelect" onchange="goSomewhere(this.form)">
+              <$mt:EntryCategory setvar="entry_cat"$>
+              <option value="<?php echo $page_url; ?>" <mt:Unless name="entry_cat">selected</mt:Unless>>English</option>
+              <mt:Categories>
+                <option value="<$mt:CategoryBasename$>/<?php echo $page_url; ?>" <mt:If tag="CategoryLabel" eq="$entry_cat">selected</mt:If>><$mt:CategoryLabel$></option>
+              </mt:Categories>
+            </select>
+          </form>
+        </li>
+      </mt:Entries>
+    </ul>
+  </div><!-- .grid_12 -->
+</div><!-- #footer .container_12 -->

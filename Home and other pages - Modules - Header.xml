@@ -1,0 +1,24 @@
+<div id="header" class="container_12">
+  <div class="grid_12">
+    <div class="grid_4 alpha">
+      <h1><a href="/<mt:If tag="CategoryBasename"><$mt:CategoryBasename$>/</mt:If>">Smaczna!</a></h1>    
+    </div><!-- .grid_4 alpha -->
+    <div class="grid_8 omega">
+      <mt:If tag="CategoryBasename"><$mt:CategoryLabel setvar="category"$><mt:Else><$mt:Var name="tag" value="@English"$></mt:If>
+      <mt:Entries lastn="1" tag="$tag" category="$category">
+        <div class="grid_7 suffix_1 alpha omega">
+          <p id="address"><$mt:EntryFieldValue field="address"$> (<a href="<$mt:EntryFieldValue field="map_link"$>"><$mt:EntryFieldValue field="map_text"$></a>) &mdash; <$mt:EntryFieldValue field="phone"$></p>
+        </div>
+        <div class="grid_7 suffix_1 alpha omega">
+          <mt:EntryIfFieldGroup group="nav_top">
+            <ul>
+              <mt:EntryFieldGroup group="nav_top">
+                <li><mt:EntryIfField field="nav_top_link"><a href="<mt:If tag="CategoryBasename">/<$mt:CategoryBasename$>/</mt:If><$mt:EntryFieldValue field="nav_top_link"$>"></mt:EntryIfField><$mt:EntryFieldValue field="nav_top_text"$><mt:EntryIfField field="nav_top_link"></a></mt:EntryIfField></li>
+              </mt:EntryFieldGroup>
+            </ul>
+          </mt:EntryIfFieldGroup>
+        </div>
+      </mt:Entries>
+    </div><!-- .grid_8 omega -->
+  </div><!-- .grid_12 -->
+</div><!-- #header .container_12 -->

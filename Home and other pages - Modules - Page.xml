@@ -1,0 +1,26 @@
+<$mt:PageTitle setvar="page_title"$>
+<$mt:PageBody filters="markdown_with_smartypants" setvar="page_body"$>
+<mt:PageIfFieldGroup group="localization">
+  <mt:PageFieldGroup group="localization">
+    <$mt:PageFieldValue field="page_lang" setvar="page_lang"$>
+    <mt:If name="page_lang" eq="$lang">
+      <mt:PageIfField field="page_title"><$mt:PageFieldValue field="page_title" setvar="page_title"$></mt:PageIfField>
+      <mt:PageIfField field="page_body"><$mt:PageFieldValue field="page_body" filters="markdown_with_smartypants" setvar="page_body"$></mt:PageIfField>
+    </mt:If>
+  </mt:PageFieldGroup>
+</mt:PageIfFieldGroup>
+<$mt:Var name="page_title" setvar="html_title"$>
+<mt:SetVarBlock name="body_class" append="1"> page</mt:SetVarBlock>
+<$mt:Include module="HTML Header"$>
+<div id="container">
+  <?php include("<$mt:var name="blog_site_path"$>header.html"); ?>
+  <div class="container_16">
+    <div id="content" class="grid_16">
+      <h2><$mt:Var name="page_title"$></h2>
+      <$mt:Var name="page_body"$>
+    </div><!-- #content .grid_16 -->
+  </div><!-- .container_16 -->
+  <?php include("<$mt:var name="blog_site_path"$>footer.html"); ?>
+</div><!-- #container -->
+<div id="container-bottom">&nbsp;</div>
+<$mt:Include module="HTML Footer"$>

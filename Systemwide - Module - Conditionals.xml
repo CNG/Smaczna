@@ -1,0 +1,27 @@
+<$mt:Var name="website_name" value="Smaczna!"$>
+<mt:If tag="FolderPath"><?php $page_url = '<$mt:FolderPath encode_php="q"$>'; ?></mt:If>
+<mt:Unless name="html_title">
+  <mt:If tag="ArchiveType" like="/(Individual|Page)/">
+    <$mt:ArchiveTitle setvar="html_title"$>
+  <mt:Ignore><mt:Else tag="ArchiveType" like="/(Daily|Weekly|Monthly|Yearly|Author|Author|Category|Author-Daily|Author-Weekly|Author-Monthly|Author-Yearly|Category-Daily|Category-Weekly|Category-Monthly|Category-Yearly)/">
+    <mt:SetVarBlock name="html_title"><$mt:ArchiveTitle$> Archives</mt:SetVarBlock>
+  </mt:Ignore>
+  <mt:Else>
+    <mt:SetVarBlock name="html_title"></mt:SetVarBlock>
+  </mt:If>
+  <mt:SetVarBlock name="html_title" append="1"><mt:If name="html_title"> | </mt:If><$mt:Var name="website_name"$></mt:SetVarBlock>
+</mt:Unless>
+<mt:If name="lang" eq="EN"><mt:SetVarBlock name="lang_path"></mt:SetVarBlock>
+<mt:Else name="lang" eq="ES"><mt:SetVarBlock name="lang_path">espanol/</mt:SetVarBlock>
+<mt:Else name="lang" eq="RU"><mt:SetVarBlock name="lang_path">russian/</mt:SetVarBlock>
+<mt:Else name="lang" eq="PO"><mt:SetVarBlock name="lang_path">polski/</mt:SetVarBlock>
+<mt:Else name="lang" eq="DE"><mt:SetVarBlock name="lang_path">deutsch/</mt:SetVarBlock>
+<mt:Else name="lang" eq="PT"><mt:SetVarBlock name="lang_path">portugues/</mt:SetVarBlock>
+<mt:Else name="lang" eq="CN"><mt:SetVarBlock name="lang_path">chinese/</mt:SetVarBlock>
+<mt:Else name="lang" eq="KO"><mt:SetVarBlock name="lang_path">korean/</mt:SetVarBlock>
+<mt:Else name="lang" eq="JP"><mt:SetVarBlock name="lang_path">japanese/</mt:SetVarBlock>
+<mt:Else name="lang" eq="IT"><mt:SetVarBlock name="lang_path">italiano/</mt:SetVarBlock>
+<mt:Else tag="CategoryBasename"><mt:SetVarBlock name="lang_path"><$mt:CategoryBasename$>/</mt:SetVarBlock></mt:If>
+<mt:SetVarBlock name="blog_site_path"><$mt:BlogSitePath$><$mt:Var name="lang_path"$></mt:SetVarBlock>
+<mt:SetVarBlock name="blog_url"><$mt:BlogURL$><$mt:Var name="lang_path"$></mt:SetVarBlock>
+<mt:SetVarBlock name="body_class" append="1"> <$mt:Var name="lang_path" replace="/",""$></mt:SetVarBlock>
