@@ -1,5 +1,12 @@
 <$mt:Var name="website_name" value="Smaczna!"$>
-<mt:If tag="FolderPath"><?php $page_url = '<$mt:FolderPath encode_php="q"$>'; ?></mt:If>
+<$mt:BlogURL setvar="blog_url"$>
+<mt:If name="page_url">
+  <?php $page_url = '<$mt:Var name="page_url" encode_php="q"$>'; ?>
+<mt:Else tag="ArchiveType" eq="Individual">
+  <?php $page_url = '<$mt:EntryPermalink replace="$blog_url","" encode_php="q"$>'; ?>
+<mt:Else tag="ArchiveType" eq="Page">
+  <?php $page_url = '<$mt:PagePermalink replace="$blog_url","" encode_php="q"$>'; ?>
+</mt:If>
 <mt:Unless name="html_title">
   <mt:If tag="ArchiveType" like="/(Individual|Page)/">
     <$mt:ArchiveTitle setvar="html_title"$>

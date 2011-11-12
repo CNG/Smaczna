@@ -32,10 +32,10 @@ li,p { font-size:12px; }
   padding-top:;
 }
 #header h1 {
-  text-indent:-9999px;
+  /*text-indent:-9999px;
   width:300px;
   height:105px;
-  background:url(/rsc/images/Header.gif) #cccccc no-repeat;
+  background:url(/rsc/images/Header.gif) #cccccc no-repeat;*/
 }
 #header p, #header ul, #header h1 { margin-bottom:0; }
 #header p { color:#adbdd1; }

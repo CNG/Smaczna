@@ -1,5 +1,5 @@
 <?php
-$zip = '<$mt:EntryFieldValue field="weather_zip" encode_php="q"$>';
+$zip = '<mt:EntryIfField field="weather_zip"><$mt:EntryFieldValue field="weather_zip" encode_php="q"$><mt:Else>53211</mt:EntryIfField>';
 
 function json_cache($url) {
   $json_path = '/var/www/smaczna.us/www/rsc/json/';
@@ -198,11 +198,11 @@ function weather( $condition, $temp_f, $lat, $lon, $local_tz_short ) {
       break;
   }
   /* Override title and subtitle if temperature issues */
-  if( $temp_f < <$mt:EntryFieldValue field="weather_threshold_cold"$> ){
+  if( $temp_f < <mt:EntryIfField field="weather_threshold_cold"><$mt:EntryFieldValue field="weather_threshold_cold"$><mt:Else>50</mt:EntryIfField> ){
     $w['patio_open'] = false;
     $w['title']    = str_replace('%',round($temp_f,0)."&deg;F",'<$mt:EntryFieldValue field="weather_title_cold" encode_php="q"$>');
     $w['subtitle'] = str_replace('%',round($temp_f,0)."&deg;F",'<$mt:EntryFieldValue field="weather_subtitle_cold" encode_php="q"$>');
-  } else if( $temp_f > <$mt:EntryFieldValue field="weather_threshold_hot"$> ){
+  } else if( $temp_f > <mt:EntryIfField field="weather_threshold_hot"><$mt:EntryFieldValue field="weather_threshold_hot"$><mt:Else>105</mt:EntryIfField> ){
     $w['patio_open'] = false;
     $w['title']    = str_replace('%',round($temp_f,0)."&deg;F",'<$mt:EntryFieldValue field="weather_title_hot" encode_php="q"$>');
     $w['subtitle'] = str_replace('%',round($temp_f,0)."&deg;F",'<$mt:EntryFieldValue field="weather_subtitle_hot" encode_php="q"$>');

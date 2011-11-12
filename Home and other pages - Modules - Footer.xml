@@ -12,9 +12,9 @@
           <form action="">
             <select name="langSelect" id="langSelect" onchange="goSomewhere(this.form)">
               <$mt:EntryCategory setvar="entry_cat"$>
-              <option value="<?php echo $page_url; ?>" <mt:Unless name="entry_cat">selected</mt:Unless>>English</option>
+              <option value="<?=$page_url;?>" <mt:Unless name="entry_cat">selected</mt:Unless>>English</option>
               <mt:Categories>
-                <option value="<$mt:CategoryBasename$>/<?php echo $page_url; ?>" <mt:If tag="CategoryLabel" eq="$entry_cat">selected</mt:If>><$mt:CategoryLabel$></option>
+                <option value="<$mt:CategoryBasename$>/<?=$page_url;?>" <mt:If tag="CategoryLabel" eq="$entry_cat">selected</mt:If>><$mt:CategoryLabel$></option>
               </mt:Categories>
             </select>
           </form>

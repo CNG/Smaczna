@@ -1,4 +1,5 @@
 <mt:If tag="CategoryBasename"><$mt:CategoryLabel setvar="category"$><mt:Else><$mt:Var name="tag" value="@English"$></mt:If>
+<mt:Var name="page_url" value="index.html"$>
 <mt:Entries lastn="1" tag="$tag" category="$category">
   <mt:SetVarBlock name="html_header" append="1">
     <link rel="stylesheet" href="/rsc/anythingslider/css/anythingslider.css" type="text/css" media="screen" />
